@@ -11,8 +11,8 @@ while /bin/true; do
   cat dump.sql | gzip -c > ${ARCHIVE_NAME}
   rm dump.sql
   ls -tr /dump/dump_*.sql.gz | head -n -"${BACKUP_NUM_KEEP}" | xargs -r rm
-  ls -al ${ARCHIVE_NAME}
   chown ${BACKUP_UID}:${BACKUP_GID} ${ARCHIVE_NAME}
+  ls -al ${ARCHIVE_NAME}
   echo "Backup successfuly exported at ${ARCHIVE_NAME}. Sleeping for ${BACKUP_FREQUENCY}"
   sleep ${BACKUP_FREQUENCY}
 done
