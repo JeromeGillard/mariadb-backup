@@ -1,6 +1,7 @@
 #!/bin/bash
-echo "Backup script started. DB host=${BACKUP_DB_HOST} user=${BACKUP_DB_USER} keep ${BACKUP_NUM_KEEP} backups, executes every ${BACKUP_FREQUENCY} seconds."
+echo "Backup script started. DB host=${BACKUP_DB_HOST} user=${BACKUP_DB_USER} keep ${BACKUP_NUM_KEEP} backups, executes every ${BACKUP_FREQUENCY}."
 trap "break;exit" SIGHUP SIGINT SIGTERM
+echo "Waiting 1 minute, for mariadb to be fully started."
 sleep 2m
 while /bin/true; do
   FN=`date +%d-%m-%Y"_"%H_%M_%S`
