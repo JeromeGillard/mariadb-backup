@@ -10,11 +10,15 @@ ENV BACKUP_FREQUENCY=1d
 ENV UID=1001
 ENV GID=1001
 
-USER ${UID}:${GID}
+
 
 COPY entrypoint.sh .
 
-RUN mkdir /dump && chmod +x entrypoint.sh
+RUN mkdir /dump && \
+    chmod +x entrypoint.sh && \
+    chown ${UID}:${GID} entrypoint.sh /dump
+
+USER ${UID}:${GID}
 
 VOLUME [ "/dump" ]
 ENTRYPOINT [ "/bin/bash", "-c", "/entrypoint.sh" ]
