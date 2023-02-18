@@ -16,9 +16,7 @@ COPY entrypoint.sh .
 
 RUN mkdir /dump && \
     chmod +x entrypoint.sh && \
-    chown ${UID}:${GID} entrypoint.sh /dump
-
-USER ${UID}:${GID}
+    chown ${UID}:${GID} /dump
 
 VOLUME [ "/dump" ]
 ENTRYPOINT [ "/bin/bash", "-c", "/entrypoint.sh" ]
