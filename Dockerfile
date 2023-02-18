@@ -7,8 +7,8 @@ ENV BACKUP_DB_USER=root
 ENV BACKUP_DB_PASSWORD=root
 ENV BACKUP_NUM_KEEP=7
 ENV BACKUP_FREQUENCY=1d
-ENV UID=1001
-ENV GID=1001
+ENV BACKUP_UID=1001
+ENV BACKUP_GID=1001
 
 
 
@@ -16,7 +16,7 @@ COPY entrypoint.sh .
 
 RUN mkdir /dump && \
     chmod +x entrypoint.sh && \
-    chown ${UID}:${GID} /dump
+    chown ${BACKUP_UID}:${BACKUP_GID} /dump
 
 VOLUME [ "/dump" ]
 ENTRYPOINT [ "/bin/bash", "-c", "/entrypoint.sh" ]

@@ -29,5 +29,5 @@ mariadb-backup:
 | BACKUP_DB_PASSWORD | You guess it | `root` |
 | BACKUP_NUM_KEEP | how many backup archive can I keep? | `7` |
 | BACKUP_FREQUENCY | How long to wait until each backup | `1d` |
-| UID | User id of the process. The produced archives will own them | `1001` |
-| GID | Group id of the process | `1001` |
+| BACKUP_UID | User id of produced archives | `1001` |
+| BACKUP_GID | Group id of produced archives | `1001` |
